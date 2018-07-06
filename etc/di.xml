@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Cron\Model\Schedule">
+        <plugin name="tenn_vaulthealth" type="TenN\VaultHealth\Plugin\Schedule" sortOrder="1" disabled="false"/>
+    </type>
+    <type name="TenN\VaultHealth\Model\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+            <argument name="fileName" xsi:type="string">var/log/jobhealth.log</argument>
+        </arguments>
+    </type>
+    <type name="TenN\VaultHealth\Model\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">jobhealth</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">TenN\VaultHealth\Model\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="TenN\VaultHealth\Model\ClientInterface" type="TenN\VaultHealth\Model\Client" />
+</config>

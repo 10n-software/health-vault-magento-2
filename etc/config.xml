@@ -1,0 +1,11 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <default>
+        <system>
+            <job_health>
+                <enable>1</enable>
+                <enable_logging>1</enable_logging>
+            </job_health>
+        </system>
+    </default>
+</config>
